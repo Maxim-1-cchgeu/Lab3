@@ -56,5 +56,6 @@ int main()
     inches_to_cm();
     puts("");
     print_table();
+    puts("");
     system("pause");
 }
