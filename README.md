@@ -7,24 +7,13 @@
 ### Алгоритм
 1. **Начало**
 2. Объявить константы:
-   - `ACCELERATION_DUE_TO_GRAVITY` = 9,81 ($м/с^2$) — длина рулона обоев.
-   - `ROLL_WIDTH` = 1 (м) — ширина рулона обоев.
+   - `ACCELERATION_DUE_TO_GRAVITY` = 9,81 ($м/с^2$) — ускорение свободного падения.
 3. Задать исходные данные:
-   - `А` — длина стены (м.).
-   - `Б` — высота стены (м.).
-   - `К` — цена одного рулона обоев (руб.).
-4. Вычислить площадь стены:
-   - `wall_length` = `А`
-   - `wall_height` = `Б`
-   - `wall_area` = `wall_length` * `wall_height`
-5. Вычислить площадь рулона:
-   - `roll_area` = `ROLL_LENGTH` * `ROLL_WIDTH`
-6. Вычислить количество рулонов, нужных для покрытия стены:
-   - `roll_quantity` = (`wall_area` + `roll_area` - 1) / `roll_area`
-7. Вычислить стоимость рулонов:
-   - `roll_price` = `К`
-   - `total_price` = `roll_price` * `roll_quantity`
-9. Вывести результаты расчетов с подстановкой всех значений в текст.
+   - `height` — высота, на которой находится тело (м).
+   - `mass` — масса тела (кг).
+4. Вычислить силу тяжести:
+   - `gravity` = `mass` * `ACCELERATION_DUE_TO_GRAVITY`
+5. Вывести результаты расчетов с подстановкой всех значений в текст.
 10. **Конец**
 
 ### Блок-схема
@@ -33,29 +22,30 @@
 ## 2. Реализация программы
 
 ```C
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<locale.h>
 
+#define ACCELERATION_DUE_TO_GRAVITY 9.81
+
 int main()
 {
-	const int ROLL_LENGTH = 12;
-	const int ROLL_WIDTH = 1;
-	float wall_length = 10;
-	float wall_height = 3;
-	float roll_price = 1450;
+    setlocale(LC_CTYPE, "RUS.UTF-8");
 
-	float wall_area = wall_length * wall_height;
-	float roll_area = ROLL_LENGTH * ROLL_WIDTH;
-	int roll_quantity = (wall_area + roll_area - 1) / roll_area; // Деление с округлением до верхней границы
-	float total_price = roll_quantity * roll_price;
+    float height, mass;
+    puts("Введите высоту, на которой находится тело (м):");
+    scanf("%f", &height);
+    puts("Введите массу тела (кг):");
+    scanf("%f", &mass);
 
-	setlocale(LC_CTYPE, "RUS.UTF-8");
-	printf("Обои для всей стены будут стоить: %6.2f руб.\n", total_price);
+    float gravity = mass * ACCELERATION_DUE_TO_GRAVITY;
+    printf("Сила тяжести равна %.2f Н\n", gravity);
+    system("pause");
 }
 ```
 ## 3. Результаты работы программы
 
-Обои для всей стены будут стоить: 4350.00 руб.
+Сила тяжести равна 35 Н
 
 ## 4. Информация о разработчике
 
