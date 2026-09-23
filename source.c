@@ -1,9 +1,42 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<locale.h>
+#include<stdlib.h>
 
 #define D 2.54
 #define P 2.32
+
+void print_math_op_results();
+void inches_to_cm();
+void print_table();
+
+int main()
+{
+    setlocale(LC_CTYPE, "RUS.UTF-8");
+
+    puts("");
+    inches_to_cm();
+    puts("");
+    print_table();
+    puts("");
+    system("pause");
+}
+
+void print_math_op_results()
+{
+    int num, num2;
+    puts("введите число");
+    scanf("%d", &num);
+    printf("Введено число %d\n\n", num);
+    puts("введите второе число");
+    scanf("%d", &num2);
+    printf("Введено число %d\n\n", num2);
+    printf("%d + %d = %d\n", num2, num, num2 + num);
+    printf("%d - %d = %d\n", num2, num, num2 - num);
+    printf("%d * %d = %d\n", num2, num, num2 * num);
+    printf("%d / %d = %d\n", num2, num, num2 / num);
+    printf("Остаток от деления %d на %d равен %d\n", num2, num, num2 % num);
+}
 
 void inches_to_cm()
 {
@@ -15,8 +48,8 @@ void inches_to_cm()
     scanf("%d", &dym);
     result_from_inch = D * dym;
     result_from_pulgada = P * dym;
-    printf("%d английских дюймов – это %.2f см\n", dym, result_from_inch);
-    printf("%d испанских дюймов – это %.2f см\n", dym, result_from_pulgada);
+    printf("%d дюймов – это %.2f см\n", dym, result_from_inch);
+    printf("%d pulgada – это %.2f см\n", dym, result_from_pulgada);
 }
 
 void print_table()
@@ -34,28 +67,4 @@ void print_table()
     printf("|%8.2f * %-8.2f|%8.2f + %-8.2f|%8.2f - %-8.2f|\n", a, b, a, b, a, b);
     printf("-------------------------------------------------------------\n");
     printf("| %17.2f | %17.2f | %17.2f |\n", a*b, a+b, a-b);
-}
-
-int main()
-{
-    setlocale(LC_CTYPE, "RUS.UTF-8");
-
-    int num, num2;
-    puts("введите число");
-    scanf("%d", &num);
-    printf("Введено число %d\n\n", num);
-    puts("введите второе число");
-    scanf("%d", &num2);
-    printf("Введено число %d\n\n", num2);
-    printf("%d + %d = %d\n", num, num2, num + num2);
-    printf("%d - %d = %d\n", num, num2, num - num2);
-    printf("%d * %d = %d\n", num, num2, num * num2);
-    printf("%d / %d = %d\n", num, num2, num / num2);
-    printf("Остаток от деления %d на %d равен %d\n", num, num2, num % num2);
-    puts("");
-    inches_to_cm();
-    puts("");
-    print_table();
-    puts("");
-    system("pause");
 }
