@@ -23,8 +23,8 @@
 
 ```C
 #define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<locale.h>
+#include <stdio.h>
+#include <locale.h>
 
 #define ACCELERATION_DUE_TO_GRAVITY 9.81
 
