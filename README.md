@@ -7,12 +7,12 @@
 ### Алгоритм
 1. **Начало**
 2. Объявить константы:
-   - `ACCELERATION_DUE_TO_GRAVITY` = 9,81 ($м/с^2$) — ускорение свободного падения.
+   - `GRAVITY_ACCELERATION` = 9,81 ($м/с^2$) — ускорение свободного падения.
 3. Задать исходные данные:
    - `height` — высота, на которой находится тело (м).
    - `mass` — масса тела (кг).
 4. Вычислить силу тяжести:
-   - `gravity` = `mass` * `ACCELERATION_DUE_TO_GRAVITY`
+   - `gravity` = `mass` * `GRAVITY_ACCELERATION`
 5. Вывести результаты расчетов с подстановкой всех значений в текст.
 10. **Конец**
 
@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-#define ACCELERATION_DUE_TO_GRAVITY 9.81
+#define GRAVITY_ACCELERATION 9.81
 
 int main()
 {
@@ -38,7 +38,7 @@ int main()
     puts("Введите массу тела (кг):");
     scanf("%f", &mass);
 
-    float gravity = mass * ACCELERATION_DUE_TO_GRAVITY;
+    float gravity = mass * GRAVITY_ACCELERATION;
     printf("Сила тяжести равна %.2f Н\n", gravity);
     system("pause");
 }
