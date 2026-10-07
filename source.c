@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<locale.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
 
 #define D 2.54
 #define P 2.32
